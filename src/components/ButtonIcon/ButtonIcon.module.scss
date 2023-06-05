@@ -1,0 +1,38 @@
+@use '@/styles/scss' as *;
+
+.button {
+	width: 40px;
+	height: 40px;
+	border: none;
+	border-radius: 10px;
+	box-shadow: 0 4px 4px rgb(0 0 0 / 5%);
+	cursor: pointer;
+
+	&.primary {
+		background-color: $primary;
+
+		&:hover {
+			background-color: $primary-hover;
+		}
+
+		svg * {
+			fill: $white;
+		}
+	}
+
+	&.ghost {
+		background-color: $white;
+
+		svg * {
+			fill: $primary;
+		}
+
+		&:hover {
+			background-color: $primary;
+
+			svg * {
+				fill: $white;
+			}
+		}
+	}
+}
