@@ -1,0 +1,22 @@
+@use '@/styles/scss' as *;
+
+.sidebar {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	color: $primary;
+	font-family: $font-family;
+	border-right: 1px dotted $primary;
+
+	@include font(18, 25);
+
+	.item {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+
+		svg {
+			fill: $primary;
+		}
+	}
+}

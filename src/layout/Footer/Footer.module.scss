@@ -1,0 +1,10 @@
+@use '@/styles/scss' as *;
+
+.footer {
+	padding: 5px;
+	color: $white;
+	text-align: center;
+	background-color: $primary;
+
+	@include font(18, 22);
+}
