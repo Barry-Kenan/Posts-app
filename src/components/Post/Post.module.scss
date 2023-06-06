@@ -1,0 +1,29 @@
+.post {
+	display: grid;
+	grid-template-columns:
+		[start image-start] 70px [image-end] 30px
+		[title-start] calc(50% - 100px)
+		[title-end middle] 1fr [end];
+	gap: 20px 0;
+	margin-bottom: 10px;
+	padding: 5px;
+
+	.image {
+		grid-column: image;
+		cursor: pointer;
+	}
+
+	.title {
+		grid-column: title;
+		font-weight: 700;
+	}
+
+	.body {
+		grid-column: start / end;
+	}
+
+	.button {
+		grid-column: start / middle;
+		width: 150px;
+	}
+}
