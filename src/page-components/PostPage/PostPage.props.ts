@@ -1,5 +1,5 @@
 import { IPost } from '@/interfaces/post.interface';
 
-export interface TopPageProps {
+export interface PostPageProps {
 	posts: IPost[];
 }
