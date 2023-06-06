@@ -1,8 +1,10 @@
 import { ButtonIcon } from '@/components';
 import cn from 'classnames';
+import Image from 'next/image';
 import { FC } from 'react';
 import styles from './Header.module.scss';
 import { HeaderProps } from './Header.props';
+import Logo from './logo.png';
 
 const Header: FC<HeaderProps> = ({
 	className,
@@ -12,8 +14,8 @@ const Header: FC<HeaderProps> = ({
 }) => {
 	return (
 		<header className={cn(className, styles.header)} {...props}>
-			<span>Logo</span>
-			{!isOpened ? (
+			<Image src={Logo} height={50} alt='logo' />
+			{isOpened ? (
 				<ButtonIcon
 					appearance='ghost'
 					icon='menu'
