@@ -1,0 +1,9 @@
+.review {
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+
+	.email {
+		font-weight: 700;
+	}
+}
