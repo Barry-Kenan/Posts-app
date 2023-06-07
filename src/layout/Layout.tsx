@@ -1,5 +1,7 @@
+import { store } from '@/store';
 import cn from 'classnames';
 import { FunctionComponent, useState } from 'react';
+import { Provider } from 'react-redux';
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
 import styles from './Layout.module.scss';
@@ -31,9 +33,11 @@ export const withLayout = <T extends Record<string, unknown>>(
 ) => {
 	return function withLayoutComponent(props: T): JSX.Element {
 		return (
-			<Layout>
-				<Component {...props} />
-			</Layout>
+			<Provider store={store}>
+				<Layout>
+					<Component {...props} />
+				</Layout>
+			</Provider>
 		);
 	};
 };
