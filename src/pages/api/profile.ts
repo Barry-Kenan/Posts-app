@@ -1,20 +1,5 @@
+import { IMyProfile } from '@/interfaces/profile.interface';
 import type { NextApiRequest, NextApiResponse } from 'next';
-
-export interface IMyProfile {
-	id: number;
-	name: string;
-	surname: string;
-	address: Address;
-	phone: string;
-	email: string;
-	github: string;
-	telegram: string;
-}
-
-interface Address {
-	country: string;
-	city: string;
-}
 
 export default function handler(
 	req: NextApiRequest,
