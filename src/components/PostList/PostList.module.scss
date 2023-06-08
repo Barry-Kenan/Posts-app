@@ -1,0 +1,23 @@
+@use '@/styles/scss' as *;
+
+.posts {
+	overflow-y: auto;
+
+	& > div + div {
+		margin-top: 30px;
+	}
+
+	&::-webkit-scrollbar {
+		width: 12px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: $white;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: $primary;
+		border: 3px solid $gray-light;
+		border-radius: 20px;
+	}
+}
