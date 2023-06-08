@@ -18,13 +18,13 @@ const Header: FC<HeaderProps> = ({
 			{isOpened ? (
 				<ButtonIcon
 					appearance='ghost'
-					icon='menu'
+					icon='close'
 					onClick={() => setIsOpened(!isOpened)}
 				/>
 			) : (
 				<ButtonIcon
 					appearance='ghost'
-					icon='close'
+					icon='menu'
 					onClick={() => setIsOpened(!isOpened)}
 				/>
 			)}

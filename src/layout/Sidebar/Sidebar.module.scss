@@ -7,6 +7,7 @@
 	padding: 5px;
 	font-family: $font-family;
 	border-right: 1px dotted $primary;
+
 	@include font(18, 25);
 
 	.item {
@@ -28,4 +29,8 @@
 			}
 		}
 	}
+}
+
+.closed {
+	display: none;
 }
