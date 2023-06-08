@@ -17,6 +17,7 @@
 
 		svg * {
 			fill: $white;
+			stroke: $white;
 		}
 	}
 
@@ -25,6 +26,7 @@
 
 		svg * {
 			fill: $primary;
+			stroke: $primary;
 		}
 
 		&:hover {
@@ -32,6 +34,7 @@
 
 			svg * {
 				fill: $white;
+				stroke: $white;
 			}
 		}
 	}

@@ -1,10 +1,14 @@
 import { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
 import close from './close.svg';
 import menu from './menu.svg';
+import sortDown from './sort-down.svg';
+import sortUp from './sort-up.svg';
 
 export const icons = {
 	close,
-	menu
+	menu,
+	sortDown,
+	sortUp
 };
 
 export type IconName = keyof typeof icons;
