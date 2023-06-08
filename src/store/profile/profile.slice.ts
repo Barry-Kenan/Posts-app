@@ -12,10 +12,10 @@ const initialState: ProfileState = {
 };
 
 export const profileSlice = createSlice({
-	name: 'posts',
+	name: 'profile',
 	initialState,
 	reducers: {
-		getPostsSuccess(state, action) {
+		getProfileSuccess(state, action) {
 			state.profile = action.payload;
 			state.isLoading = false;
 		},
