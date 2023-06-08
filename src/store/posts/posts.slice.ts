@@ -5,12 +5,14 @@ interface PostsState {
 	isLoading: boolean;
 	posts: IPost[];
 	totalCount: number;
+	pagesCount: number;
 }
 
 const initialState: PostsState = {
 	isLoading: false,
 	posts: [],
-	totalCount: 0
+	totalCount: 0,
+	pagesCount: 0
 };
 
 export const postsSlice = createSlice({
@@ -26,6 +28,9 @@ export const postsSlice = createSlice({
 		},
 		setTotalCount(state, action) {
 			state.totalCount = action.payload;
+		},
+		setPagesCount(state, action) {
+			state.pagesCount = action.payload;
 		}
 	}
 });
