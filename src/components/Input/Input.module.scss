@@ -1,0 +1,33 @@
+@use '@/styles/scss' as *;
+
+.inputWrapper {
+	position: relative;
+
+	.input {
+		padding: 7px 15px;
+		color: $black;
+		font-family: $font-family;
+		background: $white;
+		border: none;
+		border-radius: 5px;
+		outline-color: $primary;
+		box-shadow: 0 4px 4px rgb(0 0 0 / 5%);
+
+		@include font(16, 22, 500);
+
+		&::placeholder {
+			color: $gray;
+		}
+
+		&.error {
+			border: 1px solid var(--red);
+		}
+	}
+
+	.errorMessage {
+		position: absolute;
+		bottom: -20px;
+		left: 5px;
+		color: $red;
+	}
+}
