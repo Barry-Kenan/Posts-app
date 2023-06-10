@@ -1,12 +1,19 @@
+import { useActions } from '@/hooks/actions';
 import { store } from '@/store';
 import cn from 'classnames';
-import { FunctionComponent, useState } from 'react';
+import { Roboto } from 'next/font/google';
+import { FunctionComponent, useEffect, useState } from 'react';
 import { Provider } from 'react-redux';
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
 import styles from './Layout.module.scss';
 import { LayoutProps } from './Layout.props';
 import Sidebar from './Sidebar/Sidebar';
+
+const roboto = Roboto({
+	weight: ['300', '500', '700'],
+	subsets: ['cyrillic', 'latin']
+});
 
 /**
  *  Для исправление ошибки
@@ -19,9 +26,13 @@ import Sidebar from './Sidebar/Sidebar';
 
 const Layout = ({ children }: LayoutProps): JSX.Element => {
 	const [isOpened, setIsOpened] = useState<boolean>(true);
+	const { getProfile } = useActions();
+	useEffect(() => {
+		getProfile();
+	}, []);
 	return (
 		<div
-			className={cn(styles.wrapper, {
+			className={cn(styles.wrapper, roboto.className, {
 				[styles.closed]: !isOpened
 			})}
 		>
@@ -30,7 +41,7 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
 				isOpened={isOpened}
 				setIsOpened={setIsOpened}
 			/>
-			<Sidebar className={cn(styles.sidebar)} isOpened={isOpened} />
+			<Sidebar className={cn(styles.sidebar)} />
 			<main className={cn(styles.body)}>{children}</main>
 			<Footer className={styles.footer} />
 		</div>
