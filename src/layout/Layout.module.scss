@@ -9,6 +9,7 @@
 		/ auto 250px minmax(300px, 1200px) auto;
 	gap: 40px 30px;
 	min-height: 100vh;
+	overflow: hidden;
 
 	.header {
 		grid-area: header;
