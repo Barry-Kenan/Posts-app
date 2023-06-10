@@ -14,7 +14,7 @@ const Header: FC<HeaderProps> = ({
 }) => {
 	return (
 		<header className={cn(className, styles.header)} {...props}>
-			<Image src={Logo} height={50} alt='logo' />
+			<Image src={Logo} height={50} alt='logo' priority={true} />
 			{isOpened ? (
 				<ButtonIcon
 					appearance='ghost'
