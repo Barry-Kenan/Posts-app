@@ -1,4 +1,5 @@
 import { postsActions } from '@/store/posts/posts.slice';
+import { profileActions } from '@/store/profile/profile.slice';
 import { bindActionCreators } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 import { getComments } from './../store/comments/comments.saga';
@@ -6,6 +7,7 @@ import { getPosts } from './../store/posts/posts.saga';
 import { getProfile } from './../store/profile/profile.saga';
 const actions = {
 	...postsActions,
+	...profileActions,
 	getPosts,
 	getProfile,
 	getComments
