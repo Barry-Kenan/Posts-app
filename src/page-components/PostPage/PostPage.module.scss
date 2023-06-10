@@ -8,7 +8,7 @@
 
 	.searchSort {
 		display: grid;
-		grid-template-columns: [start] 24px [search-start] 1fr [search-end] 24px [end];
+		grid-template-columns: [start] 50px [search-start] 1fr [search-end] 50px [end];
 		gap: 5px;
 		justify-items: center;
 
