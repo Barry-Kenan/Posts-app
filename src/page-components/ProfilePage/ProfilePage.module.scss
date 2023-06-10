@@ -1,0 +1,93 @@
+@use '@/styles/scss' as *;
+
+.wrapper {
+	display: grid;
+	grid-template-columns: [start image-start] 200px [image-end info-start] 1fr [info-end end];
+	gap: 10px 50px;
+	max-height: 100%;
+	padding: 20px;
+
+	@include font(16, 20);
+
+	.image {
+		grid-row: 1 / span 7;
+		grid-column: image;
+	}
+
+	.fullName {
+		grid-column: info;
+
+		@include font(22, 26, 700);
+	}
+
+	.jobTitle,
+	.address {
+		grid-column: info;
+		color: $gray-dark;
+
+		@include font(18, 22, 700);
+	}
+
+	.email,
+	.phone,
+	.github,
+	.telegram {
+		grid-column: info;
+		white-space: nowrap;
+		cursor: pointer;
+	}
+
+	.hh,
+	.skills {
+		grid-column: start / end;
+		font-weight: 700;
+	}
+
+	.toastContainer {
+		color: $white;
+		text-align: center;
+
+		.toast {
+			width: auto;
+			background-color: $primary;
+		}
+	}
+
+	.marginLeft {
+		margin-left: 5px;
+	}
+
+	a:hover {
+		svg * {
+			fill: $primary;
+		}
+	}
+
+	.hov {
+		&:hover {
+			color: $primary;
+
+			svg * {
+				stroke: $primary;
+			}
+		}
+	}
+}
+
+@media (width <= 900px) and (width >= 765px) {
+	.wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+}
+
+@include for-size(miniPhone) {
+	.wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+}
