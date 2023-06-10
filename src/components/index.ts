@@ -10,3 +10,4 @@ export { default as ProfileInfo } from './ProfileInfo/ProfileInfo';
 export { default as Review } from './Review/Review';
 export { default as Search } from './Search/Search';
 export { default as SortPosts } from './SortPosts/SortPosts';
+export { default as Tag } from './Tag/Tag';
