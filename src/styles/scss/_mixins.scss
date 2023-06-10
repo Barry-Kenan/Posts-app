@@ -6,29 +6,29 @@
 
 @mixin for-size($size) {
 	@if $size == miniPhone {
-		@media screen and (width <= 480px) {
+		@media screen and (width < 550px) {
 			@content;
 		}
 	}
 
 	@if $size == phone {
-		@media screen and (width <= 640px) {
+		@media screen and (width < 640px) {
 			@content;
 		}
 	} @else if $size == tablet {
-		@media screen and (width <= 765px) {
+		@media screen and (width < 765px) {
 			@content;
 		}
 	} @else if $size == tablet-landscape {
-		@media screen and (width <= 900px) {
+		@media screen and (width < 900px) {
 			@content;
 		}
 	} @else if $size == desktop {
-		@media screen and (width <= 1200px) {
+		@media screen and (width < 1200px) {
 			@content;
 		}
 	} @else if $size == desktopPlus {
-		@media screen and (width <= 1320px) {
+		@media screen and (width < 1320px) {
 			@content;
 		}
 	}
