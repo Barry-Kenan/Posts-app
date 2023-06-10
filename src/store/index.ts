@@ -8,6 +8,7 @@ import { getPosts, getPostsSaga } from './posts/posts.saga';
 import { postsReducer } from './posts/posts.slice';
 import { getProfile, getProfileSaga } from './profile/profile.saga';
 import { profileReducer } from './profile/profile.slice';
+import { sidebarReducer } from './sidebar/sidebar.slice';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -22,7 +23,8 @@ export const store = configureStore({
 	reducer: {
 		posts: postsReducer,
 		profile: profileReducer,
-		comments: commentsReducer
+		comments: commentsReducer,
+		sidebar: sidebarReducer
 	},
 	middleware: getDefaultMiddleware =>
 		getDefaultMiddleware({ thunk: false }).concat(sagaMiddleware)
