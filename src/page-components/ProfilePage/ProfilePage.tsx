@@ -1,4 +1,4 @@
-import { Card, Tag } from '@/components';
+import { Card, Loading, Tag } from '@/components';
 import cn from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -27,7 +27,7 @@ const ProfilePage: FC<ProfilePageProps> = ({
 	}, [toast]);
 
 	if (profile == null) {
-		return <>Загрузка...</>;
+		return <Loading />;
 	}
 	return (
 		<Card color='blue' className={cn(styles.wrapper, className)}>

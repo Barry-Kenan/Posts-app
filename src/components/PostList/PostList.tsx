@@ -1,4 +1,4 @@
-import { Post } from '@/components';
+import { Loading, Post } from '@/components';
 import cn from 'classnames';
 import { FC } from 'react';
 import styles from './PostList.module.scss';
@@ -11,7 +11,7 @@ const PostList: FC<PostListProps> = ({
 	...props
 }) => {
 	if (isLoading) {
-		return <div>Загрузка...</div>;
+		return <Loading />;
 	}
 
 	if (posts.length == 0) {
