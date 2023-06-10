@@ -3,6 +3,7 @@ export { default as ButtonIcon } from './ButtonIcon/ButtonIcon';
 export { default as Card } from './Card/Card';
 export { default as Divider } from './Divider/Divider';
 export { default as Input } from './Input/Input';
+export { default as Loading } from './Loading/Loading';
 export { default as PaginationPosts } from './PaginationPosts/PaginationPosts';
 export { default as Post } from './Post/Post';
 export { default as PostList } from './PostList/PostList';
