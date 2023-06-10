@@ -1,0 +1,49 @@
+@use '@/styles/scss' as *;
+
+.tag {
+	display: inline-block;
+	box-sizing: border-box;
+	margin-top: 5px;
+	margin-right: 5px;
+	text-align: center;
+	border-radius: 20px;
+
+	&.s {
+		padding: 5px 10px;
+
+		@include font(12, 12);
+	}
+
+	&.m {
+		padding: 5px 10px;
+
+		@include font(14, 14);
+	}
+
+	&.ghost {
+		border: 1px solid $gray-light;
+	}
+
+	&.gray {
+		color: $white;
+		font-weight: bold;
+		background: $black;
+	}
+
+	&.primary {
+		color: $primary;
+		background: none;
+		border: 1px solid $primary;
+	}
+
+	&.red {
+		color: $white;
+		font-weight: bold;
+		background: $red-dark;
+	}
+
+	a {
+		display: inline-block;
+		width: 100%;
+	}
+}
