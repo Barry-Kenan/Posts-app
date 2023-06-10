@@ -5,8 +5,12 @@ export interface IMyProfile {
 	address: Address;
 	phone: string;
 	email: string;
+	jobTitle: string;
 	github: string;
+	hh: string;
 	telegram: string;
+	image: string;
+	skills: string[];
 }
 
 interface Address {
