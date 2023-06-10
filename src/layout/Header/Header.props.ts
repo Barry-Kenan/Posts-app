@@ -1,12 +1,4 @@
-import {
-	DetailedHTMLProps,
-	Dispatch,
-	HTMLAttributes,
-	SetStateAction
-} from 'react';
+import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
 export interface HeaderProps
-	extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-	isOpened: boolean;
-	setIsOpened: Dispatch<SetStateAction<boolean>>;
-}
+	extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
