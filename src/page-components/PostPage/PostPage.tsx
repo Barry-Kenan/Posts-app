@@ -20,7 +20,11 @@ const PostPage: FC<PostPageProps> = props => {
 				<Search className={styles.search} setSearchTitle={setSearchTitle} />
 				<SortPosts sort={sort} setSort={setSort} className={styles.sort} />
 			</div>
-			<PostList posts={posts} isLoading={isLoading} />
+			<PostList
+				posts={posts}
+				isLoading={isLoading}
+				className={styles.postList}
+			/>
 			{posts.length != 0 && (
 				<PaginationPosts
 					className={styles.pagination}

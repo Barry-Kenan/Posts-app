@@ -4,7 +4,7 @@
 	display: grid;
 	grid-template-rows: auto 1fr auto;
 	gap: 10px;
-	height: 100%;
+	min-height: 100%;
 
 	.searchSort {
 		display: grid;
@@ -18,7 +18,29 @@
 		}
 	}
 
+	.postList {
+		max-height: calc(100vh - 300px);
+	}
+
 	.pagination {
 		justify-content: end;
+	}
+}
+
+@media (width < 900px) and (width > 765px) {
+	.wrapper {
+		.searchSort {
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+}
+
+@include for-size(miniPhone) {
+	.wrapper {
+		.searchSort {
+			display: flex;
+			justify-content: space-between;
+		}
 	}
 }
