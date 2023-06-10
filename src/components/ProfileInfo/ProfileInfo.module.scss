@@ -13,11 +13,14 @@
 
 	.image {
 		grid-area: image;
+		width: 50px;
+		border-radius: 50%;
 	}
 
 	.name {
 		grid-area: name;
 		align-self: end;
+
 		@include font(16, 20, 700);
 	}
 
