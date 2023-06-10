@@ -1,26 +1,22 @@
+import { profileApi } from '@/helper/api/api';
 import { useActions } from '@/hooks/actions';
-import { useAppSelector } from '@/hooks/redux';
-import { IPost } from '@/interfaces/post.interface';
+import { IMyProfile } from '@/interfaces/profile.interface';
 import { withLayout } from '@/layout/Layout';
 import { ProfilePage } from '@/page-components';
-import axios from 'axios';
 import { GetStaticProps } from 'next';
 import { Inter } from 'next/font/google';
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ['cyrillic', 'latin'] });
 
-const Home: FC<HomeProps> = () => {
-	const { getProfile } = useActions();
-	const { profile, isLoading } = useAppSelector(state => state.profile);
-
-	useEffect(() => {
-		getProfile();
-	}, []);
+const Home: FC<HomeProps> = ({ profile }) => {
+	const { getProfileSuccess } = useActions();
+	if (typeof window !== 'undefined') {
+		getProfileSuccess(profile);
+	}
 	return (
 		<>
-			<ProfilePage />
-			{profile?.name}
+			<ProfilePage profile={profile} className={inter.className} />
 		</>
 	);
 };
@@ -28,16 +24,14 @@ const Home: FC<HomeProps> = () => {
 export default withLayout(Home);
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-	const { data: posts } = await axios.get<IPost[]>(
-		'https://jsonplaceholder.typicode.com/posts'
-	);
+	const { data: profile } = await profileApi.getProfile();
 	return {
 		props: {
-			posts
+			profile
 		}
 	};
 };
 
 interface HomeProps extends Record<string, unknown> {
-	posts: IPost[];
+	profile: IMyProfile;
 }
