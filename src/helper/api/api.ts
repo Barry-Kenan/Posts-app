@@ -1,5 +1,6 @@
 import { IComment } from '@/interfaces/comment.interface';
-import { IPost } from '@/interfaces/post.interface';
+import { GetPostsRes, IPost } from '@/interfaces/post.interface';
+import { IMyProfile } from '@/interfaces/profile.interface';
 import { IUser } from '@/interfaces/users.interface';
 import axios from 'axios';
 
@@ -19,7 +20,7 @@ export const postsApi = {
 		search?: string,
 		userId?: string
 	) {
-		return instanceApi.get('/posts', {
+		return instanceApi.get<GetPostsRes>('/posts', {
 			params: {
 				limit,
 				page,
@@ -33,13 +34,13 @@ export const postsApi = {
 
 export const profileApi = {
 	getProfile() {
-		return instanceApi.get(`/profile`);
+		return instanceApi.get<IMyProfile>(`/profile`);
 	}
 };
 
 export const jsonApi = {
 	getComments() {
-		return instanceJsonApi.get<IComment[]>('/comments');
+		return instanceJsonApi.get<IComment[]>('/comments').then(res => res.data);
 	},
 	getUsers() {
 		return instanceJsonApi.get<IUser[]>('/users');

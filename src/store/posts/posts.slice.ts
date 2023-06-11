@@ -1,5 +1,5 @@
 import { IPost } from '@/interfaces/post.interface';
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 interface PostsState {
 	isLoading: boolean;
@@ -19,17 +19,17 @@ export const postsSlice = createSlice({
 	name: 'posts',
 	initialState,
 	reducers: {
-		getPostsSuccess(state, action) {
+		getPostsSuccess(state, action: PayloadAction<IPost[]>) {
 			state.posts = action.payload;
 			state.isLoading = false;
 		},
 		loading(state) {
 			state.isLoading = true;
 		},
-		setTotalCount(state, action) {
+		setTotalCount(state, action: PayloadAction<number>) {
 			state.totalCount = action.payload;
 		},
-		setPagesCount(state, action) {
+		setPagesCount(state, action: PayloadAction<number>) {
 			state.pagesCount = action.payload;
 		}
 	}

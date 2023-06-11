@@ -1,5 +1,5 @@
 import { IComment } from '@/interfaces/comment.interface';
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 interface CommentsState {
 	isLoading: boolean;
@@ -15,7 +15,7 @@ export const commentsSlice = createSlice({
 	name: 'comments',
 	initialState,
 	reducers: {
-		getCommentsSuccess(state, action) {
+		getCommentsSuccess(state, action: PayloadAction<IComment[]>) {
 			state.comments = action.payload;
 			state.isLoading = false;
 		},

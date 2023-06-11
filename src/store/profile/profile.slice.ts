@@ -1,5 +1,5 @@
 import { IMyProfile } from '@/interfaces/profile.interface';
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 interface ProfileState {
 	isLoading: boolean;
@@ -15,7 +15,7 @@ export const profileSlice = createSlice({
 	name: 'profile',
 	initialState,
 	reducers: {
-		getProfileSuccess(state, action) {
+		getProfileSuccess(state, action: PayloadAction<IMyProfile>) {
 			state.profile = action.payload;
 			state.isLoading = false;
 		},
