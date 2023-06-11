@@ -40,4 +40,4 @@ _Линтеры:_ Stylelint, Eslint, Prettier
 
 ## Screenshots
 
-![App Screenshot](<https://github.com/Barry-Kenan/top-app/blob/0606f1d71ed275db92db425f270ec7ec080f5a03/top-app-demo.web.app_courses_photoshop%20(2).png>)
+![App Screenshot](<https://github.com/Barry-Kenan/Posts-app/blob/70635d6c4d086f733bba01a26b88ca789c6f9fea/src/assets/posts-app.png>)
