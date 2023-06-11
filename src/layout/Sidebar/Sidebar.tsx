@@ -12,7 +12,7 @@ import { SidebarProps } from './Sidebar.props';
 import PostIcon from './post.svg';
 import UserIcon from './user.svg';
 
-const Sidebar: FC<SidebarProps> = ({ className, ...props }) => {
+const Sidebar: FC<SidebarProps> = ({ className }) => {
 	const { isOpened } = useAppSelector(state => state.sidebar);
 	const router = useRouter();
 	const { profile } = useAppSelector(state => state.profile);

@@ -33,6 +33,7 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
 	useEffect(() => {
 		getProfile();
 	}, []);
+
 	return (
 		<div
 			className={cn(styles.wrapper, roboto.className, {

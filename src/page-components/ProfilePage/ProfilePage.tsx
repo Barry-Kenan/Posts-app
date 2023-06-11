@@ -49,8 +49,9 @@ const ProfilePage: FC<ProfilePageProps> = ({
 			variants={variants}
 			initial='hidden'
 			animate={router.asPath == '/' ? 'visible' : 'hidden'}
+			className={styles.wrapper}
 		>
-			<Card color='blue' className={cn(styles.wrapper, className)}>
+			<Card color='blue' className={cn(styles.card, className)}>
 				<Image
 					className={styles.image}
 					src={profile.image as string}

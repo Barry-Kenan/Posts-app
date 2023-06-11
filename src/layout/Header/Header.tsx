@@ -11,21 +11,16 @@ import Logo from './logo.png';
 const Header: FC<HeaderProps> = ({ className, ...props }) => {
 	const { isOpened } = useAppSelector(state => state.sidebar);
 	const { setIsOpened } = useActions();
+	const handleButton = () => {
+		setIsOpened(!isOpened);
+	};
 	return (
 		<header className={cn(className, styles.header)} {...props}>
 			<Image src={Logo} height={50} alt='logo' priority={true} />
 			{isOpened ? (
-				<ButtonIcon
-					appearance='ghost'
-					icon='close'
-					onClick={() => setIsOpened(false)}
-				/>
+				<ButtonIcon appearance='ghost' icon='close' onClick={handleButton} />
 			) : (
-				<ButtonIcon
-					appearance='ghost'
-					icon='menu'
-					onClick={() => setIsOpened(true)}
-				/>
+				<ButtonIcon appearance='ghost' icon='menu' onClick={handleButton} />
 			)}
 		</header>
 	);
