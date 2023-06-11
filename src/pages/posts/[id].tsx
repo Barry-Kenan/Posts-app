@@ -13,7 +13,7 @@ const Users: FC = () => {
 	const { getComments } = useActions();
 	const [sort, setSort] = useState<SortType>('asc');
 	const [page, setPage] = useState<number>(1);
-	const [searchTitle, setSearchTitle] = useState<string>('');
+	const [search, setSearch] = useState<string>('');
 	const router = useRouter();
 	const { getPosts } = useActions();
 	const { posts, isLoading, pagesCount } = useAppSelector(state => state.posts);
@@ -23,18 +23,25 @@ const Users: FC = () => {
 	}, []);
 
 	useEffect(() => {
-		if (searchTitle != '') {
-			getPosts(5, page, sort, searchTitle, router.query.id as string);
+		if (search != '') {
+			setPage(1);
+			getPosts({
+				limit: 100,
+				page,
+				sort,
+				search,
+				userId: router.query.id as string
+			});
 		} else {
-			getPosts(5, page, sort, '', router.query.id as string);
+			getPosts({ limit: 5, page, sort, userId: router.query.id as string });
 		}
-	}, [sort, page, searchTitle]);
+	}, [sort, page, search]);
 
 	return (
 		<PostPage
 			sort={sort}
 			setSort={setSort}
-			setSearchTitle={setSearchTitle}
+			setSearchTitle={setSearch}
 			posts={posts}
 			isLoading={isLoading}
 			page={page}

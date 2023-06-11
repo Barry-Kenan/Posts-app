@@ -25,7 +25,7 @@ const PostPage: FC<PostPageProps> = props => {
 				isLoading={isLoading}
 				className={styles.postList}
 			/>
-			{posts.length != 0 && (
+			{posts.length != 0 && pagesCount > 1 && (
 				<PaginationPosts
 					className={styles.pagination}
 					page={page}

@@ -9,18 +9,19 @@ const Posts: FC = () => {
 	const { getComments } = useActions();
 	const [sort, setSort] = useState<SortType>('asc');
 	const [page, setPage] = useState<number>(1);
-	const [searchTitle, setSearchTitle] = useState<string>('');
+	const [search, setSearch] = useState<string>('');
 
 	const { getPosts } = useActions();
 	const { posts, isLoading, pagesCount } = useAppSelector(state => state.posts);
 
 	useEffect(() => {
-		if (searchTitle != '') {
-			getPosts(5, page, sort, searchTitle);
+		if (search != '') {
+			setPage(1);
+			getPosts({ limit: 100, page, sort, search });
 		} else {
-			getPosts(5, page, sort);
+			getPosts({ limit: 5, page, sort });
 		}
-	}, [sort, page, searchTitle]);
+	}, [sort, page, search]);
 
 	useEffect(() => {
 		getComments();
@@ -30,7 +31,7 @@ const Posts: FC = () => {
 		<PostPage
 			sort={sort}
 			setSort={setSort}
-			setSearchTitle={setSearchTitle}
+			setSearchTitle={setSearch}
 			posts={posts}
 			isLoading={isLoading}
 			page={page}
