@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import { motion } from 'framer-motion';
 import { FC } from 'react';
 import styles from './Button.module.scss';
 import { ButtonProps } from './Button.props';
@@ -12,7 +13,8 @@ const Button: FC<ButtonProps> = ({
 	...props
 }) => {
 	return (
-		<button
+		<motion.button
+			whileHover={{ scale: 1.05 }}
 			className={cn(styles.button, className, {
 				[styles.primary]: appearance == 'primary',
 				[styles.ghost]: appearance == 'ghost'
@@ -29,7 +31,7 @@ const Button: FC<ButtonProps> = ({
 					<ArrowIcon />
 				</span>
 			)}
-		</button>
+		</motion.button>
 	);
 };
 

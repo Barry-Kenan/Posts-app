@@ -44,7 +44,7 @@ const Sidebar: FC<SidebarProps> = ({ className, ...props }) => {
 		<motion.div
 			className={cn(className, styles.sidebar)}
 			variants={variants}
-			initial={'closed'}
+			initial={'opened'}
 			animate={isOpened ? 'opened' : 'closed'}
 		>
 			{profile && (
