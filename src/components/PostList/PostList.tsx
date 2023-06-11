@@ -15,7 +15,7 @@ const PostList: FC<PostListProps> = ({
 	}
 
 	if (posts.length == 0) {
-		return <div>Ничего не нашли</div>;
+		return <div>Постов не найдено</div>;
 	}
 
 	return (
