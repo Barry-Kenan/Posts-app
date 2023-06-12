@@ -26,7 +26,7 @@ const Users: FC = () => {
 		if (search != '') {
 			setPage(1);
 			getPosts({
-				limit: 100,
+				limit: 5,
 				page,
 				sort,
 				search,

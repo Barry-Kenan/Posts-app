@@ -17,7 +17,7 @@ const Posts: FC = () => {
 	useEffect(() => {
 		if (search != '') {
 			setPage(1);
-			getPosts({ limit: 100, page, sort, search });
+			getPosts({ limit: 5, page, sort, search });
 		} else {
 			getPosts({ limit: 5, page, sort });
 		}

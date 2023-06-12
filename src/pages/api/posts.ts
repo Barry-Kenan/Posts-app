@@ -14,6 +14,8 @@ export default async function handler(
 		if (search) {
 			const re = new RegExp(search as string, 'i');
 			data = data.filter(e => e.title.search(re) !== -1);
+			const totalCount = data.length;
+			return res.status(200).json({ posts: data, totalCount, pagesCount: 1 });
 		}
 
 		const totalCount = data.length;
