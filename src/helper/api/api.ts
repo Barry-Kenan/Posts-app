@@ -5,11 +5,14 @@ import { IUser } from '@/interfaces/users.interface';
 import axios from 'axios';
 
 export const instanceApi = axios.create({
-	baseURL: 'http://localhost:3000/api'
+	baseURL: '/api'
 });
 
 export const instanceJsonApi = axios.create({
-	baseURL: 'https://jsonplaceholder.typicode.com'
+	baseURL: 'https://jsonplaceholder.typicode.com',
+	headers: {
+		'Content-Type': 'application/json'
+	}
 });
 
 export const postsApi = {
