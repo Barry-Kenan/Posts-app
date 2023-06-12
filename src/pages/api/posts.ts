@@ -10,26 +10,34 @@ export default async function handler(
 		query: { limit, page, sort, search, userId }
 	} = req;
 
+	const sorting = (data: IPost[]) => {
+		let sortedPosts = [];
+		if (sort == 'asc') {
+			sortedPosts = data.sort((a, b) => a.id - b.id);
+		} else {
+			sortedPosts = data.sort((a, b) => b.id - a.id);
+		}
+
+		return sortedPosts;
+	};
+
 	const returnPosts = (data: IPost[]) => {
 		if (search) {
 			const re = new RegExp(search as string, 'i');
 			data = data.filter(e => e.title.search(re) !== -1);
 			const totalCount = data.length;
-			return res.status(200).json({ posts: data, totalCount, pagesCount: 1 });
+			const sortedPosts = sorting(data);
+			return res
+				.status(200)
+				.json({ posts: sortedPosts, totalCount, pagesCount: 1 });
 		}
 
 		const totalCount = data.length;
 		const pagesCount = Math.ceil(totalCount / Number(limit));
 		const from = (Number(page) - 1) * Number(limit);
 		const to = from + Number(limit);
-
-		let allPosts = [];
-		if (sort == 'asc') {
-			allPosts = data.sort((a, b) => a.id - b.id);
-		} else {
-			allPosts = data.sort((a, b) => b.id - a.id);
-		}
-		const posts = allPosts.slice(from, to);
+		const sortedPosts = sorting(data);
+		const posts = sortedPosts.slice(from, to);
 		return res.status(200).json({ posts, totalCount, pagesCount });
 	};
 
