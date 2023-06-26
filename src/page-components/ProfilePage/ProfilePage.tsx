@@ -41,7 +41,7 @@ const ProfilePage: FC<ProfilePageProps> = ({
 		return () => clearTimeout(timerId);
 	}, [toast]);
 
-	if (profile == null) {
+	if (!profile) {
 		return <Loading />;
 	}
 	return (
