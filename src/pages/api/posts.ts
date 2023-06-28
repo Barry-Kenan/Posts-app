@@ -41,15 +41,19 @@ export default async function handler(
 		return res.status(200).json({ posts, totalCount, pagesCount });
 	};
 
-	try {
-		if (userId) {
+	if (userId) {
+		try {
 			const { data } = await jsonApi.getPosts(userId as string);
 			returnPosts(data);
-		} else {
+		} catch (error) {
+			res.json(error);
+		}
+	} else {
+		try {
 			const { data } = await jsonApi.getPosts();
 			returnPosts(data);
+		} catch (error) {
+			res.json(error);
 		}
-	} catch (error) {
-		res.json(error);
 	}
 }
