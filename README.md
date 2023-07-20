@@ -2,6 +2,9 @@
 
 # Приложение постов
 
+## 🔗 Ссылка на деплой
+[![nextjs-app-deploy](https://skillicons.dev/icons?i=nextjs)](https://posts-app-five.vercel.app/)
+
 ## Author
 
 - [@Barry-Kenan](https://github.com/Barry-Kenan)
